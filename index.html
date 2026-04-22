@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Dust - Interactive Particle Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="controls" class="controls-panel">
+        <header>
+            <h1>Stellar Dust</h1>
+            <div class="header-actions">
+                <span id="fpsDisplay">60 FPS</span>
+                <button id="btnCollapse" class="icon-btn" title="Toggle Menu">▼</button>
+            </div>
+        </header>
+
+        <div id="controlsBody">
+
+        <div class="control-group input-wrapper">
+            <input type="text" id="wordInput" class="text-input" placeholder="Type a word...">
+            <button id="btnClearText" class="icon-btn clear-btn" title="Clear Text">&times;</button>
+        </div>
+
+        <div class="control-group">
+            <label for="particleCount">Particle Count: <span id="particleCountValue">2500</span></label>
+            <input type="range" id="particleCount" min="500" max="10000" step="100" value="2500">
+        </div>
+
+        <div class="control-group">
+            <label for="mouseMode">Mouse Mode (1, 2, 3)</label>
+            <div class="button-group">
+                <button id="modeAttract" class="mode-btn active" data-mode="attract">Attract</button>
+                <button id="modeRepel" class="mode-btn" data-mode="repel">Repel</button>
+                <button id="modeOrbit" class="mode-btn" data-mode="orbit">Orbit</button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="mouseRadius">Influence Radius: <span id="mouseRadiusValue">150</span></label>
+            <input type="range" id="mouseRadius" min="50" max="500" step="10" value="150">
+        </div>
+
+        <div class="control-group">
+            <label for="mouseForce">Force Strength: <span id="mouseForceValue">1.0</span></label>
+            <input type="range" id="mouseForce" min="0.1" max="5.0" step="0.1" value="1.0">
+        </div>
+
+        <div class="control-group">
+            <label for="gravity">Gravity Strength: <span id="gravityValue">0.0</span></label>
+            <input type="range" id="gravity" min="-1.0" max="1.0" step="0.05" value="0.0">
+        </div>
+
+        <div class="control-group">
+            <label for="themeSelect">Color Theme</label>
+            <select id="themeSelect">
+                <option value="rainbow">Rainbow Cycling</option>
+                <option value="fire">Inferno Fire</option>
+                <option value="ice">Frostbite Ice</option>
+                <option value="neon">Cyberpunk Neon</option>
+                <option value="monochrome">Monochrome</option>
+            </select>
+        </div>
+
+        <div class="control-row">
+            <label class="toggle-label">
+                Trails
+                <input type="checkbox" id="trailsToggle" checked>
+                <span class="toggle-switch"></span>
+            </label>
+        </div>
+
+        <div class="control-row">
+            <label class="toggle-label">
+                Constellation
+                <input type="checkbox" id="constellationToggle">
+                <span class="toggle-switch"></span>
+            </label>
+        </div>
+
+        <div class="actions">
+            <button id="btnPause">Pause</button>
+            <button id="btnReset">Reset</button>
+            <button id="btnScreenshot">Snap</button>
+        </div>
+
+        <div class="hints">
+            <p><strong>Click</strong> to burst</p>
+            <p><strong>Drag</strong> to stream</p>
+            <p><strong>G</strong> toggles gravity</p>
+        </div>
+        </div> <!-- End controlsBody -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
